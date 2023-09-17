@@ -80,5 +80,5 @@ void main()
         else
         printf("\t%dx^%d\n",c[i].c,c[i].e);
     }
-    
+    //works
 }
