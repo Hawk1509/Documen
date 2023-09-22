@@ -51,6 +51,14 @@ void main()
                 trp[k][2] = a[i][j];
                 k=k+1;
             }
+            //printf("%d\t",trp[i][j]);
+        }
+        //printf("\n");
+    }
+    for (i=0;i<count+1;i++)
+    {
+        for(j=0;j<3;j++)
+        {
             printf("%d\t",trp[i][j]);
         }
         printf("\n");
