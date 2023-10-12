@@ -20,7 +20,6 @@ void main()
     if(r != r1 && c != c1)
     {
     	printf("Addition is not possible\n");
-    	//break;
     }
     else
     { 
@@ -33,7 +32,7 @@ void main()
          	   scanf("%d",&a[i][j]);
         	}
     	}
-    	for (i=0;i<r;i++)
+    	for (i=0;i<r;i++)   
     	{
       	  for(j=0;j<c;j++)
       	  {
@@ -61,9 +60,7 @@ void main()
 		             trp[k][2] = a[i][j];
 		             k=k+1;
 		         }
-		         //printf("%d\t",trp[i][j]);
 		     }
-		     //printf("\n");
 		 }
 		 for (i=0;i<count+1;i++)
 		 {
@@ -112,9 +109,7 @@ void main()
 		             trp1[k][2] = b[i][j];
 		             k=k+1;
 		         }
-		         //printf("%d\t",trp[i][j]);
 		     }
-		     //printf("\n");
 		 }
 		 for (i=0;i<count1+1;i++)
 		 {
@@ -125,17 +120,19 @@ void main()
 		     printf("\n");
 		}		 
 		 printf("\nSum of the triplets of matrix A and B are:\n");
-		 int trp2[count1 + 1][3],k = 1;
+         
+		 int trp2[count1 + 1][3];
+         int i = 1,j = 1,k = 1;
 		 while(i<=count && j<=count1)
 		 {
-		 	if ((trp[i][0] < trp1[j][0]) || (trp[i][0] == trp1[j][0] && trp[i][1] < trp1[j][1]))
+		 	if (trp[i][0] < trp1[j][0] || (trp[i][0] == trp1[j][0] && trp[i][1] < trp1[j][1]))
 		 	{
 		 		trp2[k][0] = trp[i][0];
 		 		trp2[k][1] = trp[i][1];
 		 		trp2[k][2] = trp[i][2];
 		 		i = i + 1;
 		 	} 
-		 	else if ((trp[i][0] > trp1[j][0]) || (trp[i][0] == trp1[j][0] && trp[i][1] > trp1[j][1]))
+		 	else if (trp[i][0] > trp1[j][0] || (trp[i][0] == trp1[j][0] && trp[i][1] > trp1[j][1]))
 		 	{
 		 		trp2[k][0] = trp1[j][0];
 		 		trp2[k][1] = trp1[j][1];
@@ -152,8 +149,6 @@ void main()
 		 	}
             k++;
 		 }
-		 k = 1;
-         i = 0;
 		 while (i <= count)
 		 {
 		 	trp2[k][0] = trp[i][0];
@@ -162,8 +157,6 @@ void main()
 		 	k = k + 1;
 		 	i = i + 1;
 		 }
-		 k = 1;
-         j = 0;
 		 while (j <= count1)
 		 {
 		 	trp2[k][0] = trp1[j][0];
