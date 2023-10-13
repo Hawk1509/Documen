@@ -1,76 +1,63 @@
-//program to develop postfix algorithm
-//int item;
+//prorgam to display postfix
 #include <stdio.h>
-int top = -1;
-int a[10];
 #define max 5
-void push();
-void pop();
-void display();
-char item, pstfx;
-void push()
+void push(char);
+char pop();
+void preceed();
+char a[10];
+int top = -1;
+void push(char p)
 {
-    if (top == max - 1)
+    if (a[top] == max - 1)
     {
         printf("Stack is full");
     }
     else
     {
         top += 1;
-        a[top] = item;
+        a[top] = p;
     }
-    
 }
-void pop()
+char pop()
 {
     if (top == -1)
     {
-        printf("Empty stack");
+        printf("Stack is Empty");
     }
     else
     {
-        item += 1;
-        item = a[top];
-        
+        char del = a[top];
+        del -= 1;
+        return del;
     }
 }
-char preceed(char);
-char preceed(char ch)
+void preceed(char s)
 {
-    switch(ch)
+    switch(s)
     {
-        case '(':
-        return 1;
         case '+':
-        return 2;
         case '-':
-        return 2;
+        return 1;
         case '*':
-        return 3;
         case '/':
-        return 3;
+        return 2;
         case '^':
-        return 4;
+        return 3;
         default:
-        return -1; 
+        return -1;
     }
 }
 void main()
 {
-    char item;
-    printf("Enter Expression: ");
-    while(item != '\0')
-    {
-        gets(item);
-    }
+    char item[10];
+    printf("Enter expression: ");
+    gets (item);
     while(item != '\0')
     {
         if (item == '(')
         {
-            push();
+            push('(');
         }
-        else if (item == alpha)
+        else if (item == )
     }
-    
-
 }
