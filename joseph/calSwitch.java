@@ -35,5 +35,48 @@ class calSwitch{
 		}
 	}
 }
-			
+
+/* 
+						OUTPUT
+Enter 1st number: 
+10
+Enter 2nd number: 
+5
+Enter operation 
+ + 
+ - 
+ * 
+ / 
+: 
++
+The Sum is: 15
+Do you want to continue (y/n)? y
+Enter operation 
+ + 
+ - 
+ * 
+ / 
+: 
+-
+The Difference is: 5
+Do you want to continue (y/n)? y
+Enter operation 
+ + 
+ - 
+ * 
+ / 
+: 
+*
+The Product is: 50
+Do you want to continue (y/n)? y
+Enter operation 
+ + 
+ - 
+ * 
+ / 
+: 
+/
+The Result is: 2
+Do you want to continue (y/n)? n
+*/
 		
