@@ -222,3 +222,81 @@ void main()
     }
     while (ch == 'y');
 }
+/*                                                          OUTPUT
+
+1.Insert element at the start
+2.Insert Element at the end
+3.Insert Element at key
+4.Display
+5.Delete Element from the beginning
+6.Delete Element from the end
+7.Delete Element by the key
+
+Enter choice: 1 
+Enter element to be inserted: 10
+
+Do you want to continue? (y/n): y
+
+1.Insert element at the start
+2.Insert Element at the end
+3.Insert Element at key
+4.Display
+5.Delete Element from the beginning
+6.Delete Element from the end
+7.Delete Element by the key
+
+Enter choice: 1
+Enter element to be inserted: 20
+
+Do you want to continue? (y/n): y
+
+1.Insert element at the start
+2.Insert Element at the end
+3.Insert Element at key
+4.Display
+5.Delete Element from the beginning
+6.Delete Element from the end
+7.Delete Element by the key
+
+Enter choice: 3
+Enter item to be inserted: 40
+Enter the key: 20
+
+Do you want to continue? (y/n): y
+
+1.Insert element at the start
+2.Insert Element at the end
+3.Insert Element at key
+4.Display
+5.Delete Element from the beginning
+6.Delete Element from the end
+7.Delete Element by the key
+
+Enter choice: 4
+20      40      10
+Do you want to continue? (y/n): y
+
+1.Insert element at the start
+2.Insert Element at the end
+3.Insert Element at key
+4.Display
+5.Delete Element from the beginning
+6.Delete Element from the end
+7.Delete Element by the key
+
+Enter choice: 5
+
+Do you want to continue? (y/n): y
+
+1.Insert element at the start
+2.Insert Element at the end
+3.Insert Element at key
+4.Display
+5.Delete Element from the beginning
+6.Delete Element from the end
+7.Delete Element by the key
+
+Enter choice: 4
+40      10
+Do you want to continue? (y/n): n
+*/
