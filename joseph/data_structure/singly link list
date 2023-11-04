@@ -1,0 +1,41 @@
+#inlcude <stdio.h>
+#include <stdlib.h>
+int item;
+struct node{
+	int data;
+	struct node *link;
+}
+struct node *link,*header,*ptr,
+void begin()
+{
+	new = (struct node*)malloc(sizeof(struct node));
+	printf("Enter element: ");
+	scanf("%d",&item);
+	new -> data = item;
+	new -> link = header;
+	header = new;
+}
+void ending()
+{
+	new = (struct node*)malloc(sizeof(struct node));
+	printf("enter elemnt to be inserted: ");
+	scanf("%d",&item);
+	new -> data = item;
+	new -> link = null;
+	if (header == null)
+	{
+		header = new;
+	}
+	else 
+	{
+		ptr = header;
+		while(ptr -> link != null)
+	{
+		ptr = ptr -> link;
+		
+	}
+	ptr -> link = new;
+}
+void keyinsert()
+{
+			
