@@ -6,7 +6,8 @@ struct node
 	int c, e;
 	struct node * link;
 };
-struct node *new, *pheader = NULL, *qheader = NULL, *rheader = NULL, *ptr1, *ptr2, *ptr3;
+struct node *new, *pheader = NULL, *qheader = NULL, *rheader = NULL, *ptr1 = NULL, *ptr2 = NULL, *ptr3;
+
 void main()
 {
 	int coef,expr,n,i,m;
@@ -20,15 +21,18 @@ void main()
 		scanf("%d",&coef);
 		scanf("%d",&expr);
 		new = (struct node*)malloc(sizeof(struct node));
-		ptr1 -> c = coef;
-		ptr1 -> e = expr;
-		ptr1 -> link = NULL;
-		
-		for(i=0;i<n;i++)
-		{
-			printf("%dx^%d+",ptr1->c,ptr1->e);
-			//ptr1 = ptr1 -> link;
-		}
+	    new -> c = coef;
+		new -> e = expr;
+		new -> link = NULL;
+        if (pheader == NULL)
+        {
+            ptr1 = pheader = new;
+        }
+        else
+        {
+                ptr1 -> link = new;
+                ptr1 = new;
+        }
 	}
 
 	//2nd polynomial values
@@ -46,6 +50,15 @@ void main()
 	ptr2 -> c = coef;
 	ptr2 -> e = expr;
 	ptr2 -> link = NULL;
+    if (qheader = NULL)
+    {
+        ptr2 = qheader = new;
+    }
+    else
+    {
+        ptr2 -> link = new;
+        ptr2 = new;
+    }
 		
 	while(ptr1 != NULL && ptr2 != NULL)
 	{
@@ -137,7 +150,15 @@ void main()
 			}
 			ptr2 = ptr2 -> link;
 		}	
-			} 
-		}	
-	
+	} 
+    while(ptr3 != NULL)
+    {
+        printf("%dx^%d+",ptr3 -> c,ptr3 -> e);
+        ptr3 = ptr3 -> link;
+    }
+    if(ptr3 != NULL)
+    printf("%dx^%d",ptr3 -> c,ptr3 -> e);
 
+        
+}	
+	
