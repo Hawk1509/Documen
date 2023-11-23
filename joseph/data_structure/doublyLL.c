@@ -163,19 +163,26 @@ void delKey()
 			{
 				ptr = ptr -> rlink;
 			}
-			if (ptr == header)
+			/*if (ptr == header)
 			{
 				header = header -> rlink;
 				header -> llink = NULL;
 				free(ptr);
+			}*/
+			if(ptr -> data == k && ptr -> rlink == NULL) //deletion at the end element
+			{
+				delEnd();
 			}
-			else if()//deletion at the end element
+			else if (ptr -> data == k && ptr -> llink == NULL)
+			{
+				delBeg();
+			}
 			else
 			{
 				ptr1 = ptr -> llink;
-				ptr2 = ptr -> rlink;
-				ptr -> rlink = ptr2;
-				ptr -> llink = ptr1;
+				ptr1->rlink = ptr -> rlink;
+				ptr -> rlink = NULL;
+				ptr -> llink = NULL;
 				free(ptr);
 			}
 		}
@@ -247,4 +254,3 @@ void main()
 	
 	
 	
-
