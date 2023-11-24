@@ -46,11 +46,11 @@ void main()
 		scanf("%d",&expr);
 		
 	}
-	ptr2 = (struct node*)malloc(sizeof(struct node));
-	ptr2 -> c = coef;
-	ptr2 -> e = expr;
-	ptr2 -> link = NULL;
-    if (qheader = NULL)
+	new = (struct node *)malloc(sizeof(struct node));
+	new -> c = coef;
+	new -> e = expr;
+	new -> link = NULL;
+    if (qheader == NULL)
     {
         ptr2 = qheader = new;
     }
@@ -70,7 +70,7 @@ void main()
 			new -> link = NULL;
 			if(rheader == NULL)
 			{
-				rheader = ptr3 = NULL;
+				rheader = ptr3 = new;
 			}
 			else
 			{
@@ -89,7 +89,7 @@ void main()
 			new -> link = NULL;
 			if(rheader == NULL)
 			{
-				rheader = ptr3 = NULL;
+				rheader = ptr3 = new;
 			}
 			else
 			{
@@ -106,7 +106,7 @@ void main()
 			new -> link = NULL;
 			if(rheader == NULL)
 			{
-				rheader = ptr3 = NULL;
+				rheader = ptr3 = new;
 			}
 			else
 			{
@@ -123,7 +123,7 @@ void main()
 			new -> link = NULL;
 			if(rheader == NULL)
 			{
-				rheader = ptr3 = NULL;
+				rheader = ptr3 = new;
 			}
 			else
 			{
@@ -141,7 +141,7 @@ void main()
 			new -> link = NULL;
 			if(rheader == NULL)
 			{
-				rheader = ptr3 = NULL;
+				rheader = ptr3 = new;
 			}
 			else
 			{
@@ -151,13 +151,13 @@ void main()
 			ptr2 = ptr2 -> link;
 		}	
 	} 
-    while(ptr3 != NULL)
+    while(rheader != NULL)
     {
-        printf("%dx^%d+",ptr3 -> c,ptr3 -> e);
-        ptr3 = ptr3 -> link;
+        printf("%dx^%d+",rheader -> c,rheader -> e);
+        rheader = rheader -> link;
     }
-    if(ptr3 != NULL)
-    printf("%dx^%d",ptr3 -> c,ptr3 -> e);
+    if(rheader != NULL)
+    printf("%dx^%d",rheader -> c,rheader -> e);
 
         
 }	
