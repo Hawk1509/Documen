@@ -1,84 +1,164 @@
-//prorgam to sum 2 polynomials
+//program to perform Polynomial Addition using singly linked list
 #include <stdio.h>
-struct poly
+#include <stdlib.h>
+struct node 
 {
-    int e,c;
-}a[10],b[10],c[10];
+	int c, e;
+	struct node * link;
+};
+struct node *new, *pheader = NULL, *qheader = NULL, *rheader = NULL, *ptr1 = NULL, *ptr2 = NULL, *ptr3;
+
 void main()
 {
-    int i=0,j=0,k=0,t1,t2;
-    printf("Enter number of tems in the first polynomial: ");
-    scanf("%d",&t1);
-    printf("Enter number of terms in 2nd polynomial: ");
-    scanf("%d",&t2);
-    printf("\nValues of the 1st polynomial.\n\n");
-    for (i=0;i<t1;i++)
-    {
-        printf("Enter coefficients of term %d: ",i+1);
-        scanf("%d",&a[i].c);
-        printf("Enter expression of term %d: ",i+1);
-        scanf("%d",&a[i].e);
-    }
-    printf("\nValues of the 2nd polynomial\n\n");
-    for (j=0;j<t2;j++)
-    {
-        printf("Enter coefficients of term %d: ",j+1);
-        scanf("%d",&b[j].c);
-        printf("Enter expression of term %d: ",j+1);
-        scanf("%d",&b[j].e);
-    }
-    i = 0;
-    j = 0;
-    k = 0;
-    while (i<t1 || j<t2)
-    {
+	int coef,expr,n,i,m;
 
-        if (a[i].e == b[j].e)
+	//1st polynomial values
+	printf("\nFRIST POLYNOMIAL VALUES\n");
+	printf("ENTER LIMIT: ");
+	scanf("%d", &n);
+	for(i=0; i<n; i++)
+	{
+		printf("Enter coefficient and expression values %d term: ",i+1);
+		scanf("%d", &coef);
+		scanf("%d", &expr);
+		new = (struct node*)malloc(sizeof(struct node));
+	    new -> c = coef;
+		new -> e = expr;
+		new -> link = NULL;
+        if (pheader == NULL)
         {
-            c[k].c = a[i].c + b[j].c;
-            c[k].e = a[i].e;
-            i++;
-            j++;
-            k++;
-        } 
-        else if (a[i].e > b[j].e)
-        {
-           c[k].c = a[i].c;
-           c[k].e = a[i].e;
-           i++;
-           k++; 
-        }
-        else if (a[i].e < b[j].e)
-        {
-           c[k].c = b[j].c;
-           c[k].e = b[j].e;
-           j++;
-           k++; 
-        }
-    }
-    /*while (i<t1)
-    {
-        c[k].c = a[i].c;
-        c[k].e = a[i].e;
-        i++;
-        k++;  
-    }
-    while (j<t2)
-    {
-        c[k].c = b[j].c;
-        c[k].e = b[j].e;
-        j++;
-        k++; 
-    }*/
-    printf("\n\tResultant polynomial is:\n ");
-    for (i=0;i<k;i++)
-    {
-        if (i != k-1)
-        {   
-            printf("\t%dx^%d + ",c[i].c,c[i].e);
+            ptr1 = pheader = new;
         }
         else
-        printf("\t%dx^%d\n",c[i].c,c[i].e);
+        {
+                ptr1 -> link = new;
+                ptr1 = new;
+        }
+	}
+
+	//2nd polynomial values
+	printf("\nSECOND POLYNOMIAL VALUES\n");
+	printf("ENTER LIMIT: ");
+	scanf("%d",&m);
+	for(i=0; i<m; i++)
+	{
+		printf("Enter coefficient and expression values %d term: ",i+1);
+		scanf("%d", &coef);
+		scanf("%d", &expr);
+		
+		new = (struct node *)malloc(sizeof(struct node));
+		new -> c = coef;
+		new -> e = expr;
+		new -> link = NULL;
+		if (qheader == NULL)
+		{
+			ptr2 = qheader = new;
+		}
+		else
+		{
+			ptr2 -> link = new;
+			ptr2 = new;
+		}
+	}
+		
+	while(ptr1 != NULL && ptr2 != NULL)
+	{
+		if(ptr1 -> e == ptr2-> e)
+		{
+			new = (struct node*)malloc(sizeof(struct node));
+			new -> c = ptr1 -> c + ptr2 -> c;
+			new -> e = ptr1 -> e;
+			new -> link = NULL;
+			if(rheader == NULL)
+			{
+				rheader = ptr3 = new;
+			}
+			else
+			{
+				ptr3 -> link = new;
+				ptr3 = new;
+			}
+			ptr1 = ptr1 -> link;
+			ptr2 = ptr2 -> link;
+		}
+		
+		else if(ptr1 -> e > ptr2-> e)
+		{
+			new = (struct node*)malloc(sizeof(struct node));
+			new -> c = ptr1 -> c;
+			new -> e = ptr1 -> e;
+			new -> link = NULL;
+			if(rheader == NULL)
+			{
+				rheader = ptr3 = new;
+			}
+			else
+			{
+				ptr3 -> link = new;
+				ptr3 = new;
+			}
+			ptr1 = ptr1 -> link;
+		}
+		else if(ptr1 -> e < ptr2-> e)
+		{
+			new = (struct node*)malloc(sizeof(struct node));
+			new -> c = ptr2 -> c;
+			new -> e = ptr2 -> e;
+			new -> link = NULL;
+			if(rheader == NULL)
+			{
+				rheader = ptr3 = new;
+			}
+			else
+			{
+				ptr3 -> link = new;
+				ptr3 = new;
+			}
+			ptr2 = ptr2 -> link;
+		}
+		while(ptr1 != NULL)
+		{
+			new = (struct node*)malloc(sizeof(struct node));
+			new -> c = ptr1 -> c;
+			new -> e = ptr1 -> e;
+			new -> link = NULL;
+			if(rheader == NULL)
+			{
+				rheader = ptr3 = new;
+			}
+			else
+			{
+				ptr3 -> link = new;
+				ptr3 = new;
+			}
+			ptr1 = ptr1 -> link;
+		}
+		
+		while(ptr2 != NULL)
+		{
+			new = (struct node*)malloc(sizeof(struct node));
+			new -> c = ptr2 -> c;
+			new -> e = ptr2 -> e;
+			new -> link = NULL;
+			if(rheader == NULL)
+			{
+				rheader = ptr3 = new;
+			}
+			else
+			{
+				ptr3 -> link = new;
+				ptr3 = new;
+			}
+			ptr2 = ptr2 -> link;
+		}	
+	} 
+    while(rheader != NULL)
+    {
+        printf("%dx^%d+",rheader -> c,rheader -> e);
+        rheader = rheader -> link;
     }
-    //works
-}
+    if(rheader != NULL)
+    printf("%dx^%d",rheader -> c,rheader -> e);
+
+        
+}	
