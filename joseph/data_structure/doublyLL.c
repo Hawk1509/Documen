@@ -83,20 +83,31 @@ int k;
 		{
 			printf("Enter element after which new element shoudl be inserted: ");
 			scanf("%d",&k);
-		printf("Enter element: ");
-		scanf("%d",&item);
-		new -> rlink = NULL;
-		new -> llink = NULL;
-		new -> data = item;
-		ptr = header;
-		while (ptr -> data != k)
-		{
-			ptr = ptr -> rlink;
-		}
-		new -> llink = ptr;
-		new -> rlink = ptr -> rlink;
-		ptr -> rlink = new;				
-		}
+            
+                while (ptr -> data != k && ptr -> rlink != NULL)
+                {
+                    ptr = ptr -> rlink;
+                }
+                if (ptr -> data == k)
+            {
+            
+                printf("Enter element: ");
+                scanf("%d",&item);
+                new -> rlink = NULL;
+                new -> llink = NULL;
+                new -> data = item;
+                ptr = header;
+                new -> llink = ptr;
+                new -> rlink = ptr -> rlink;
+                ptr -> rlink = new;				
+            }
+            else
+            {
+                printf("Element is not present\n");
+            }
+            
+            
+        }
 	}
 }
 void delBeg()
@@ -159,32 +170,33 @@ void delKey()
 			
 			printf("Enter element to be deleted: ");
 			scanf("%d",&k);
-			while(ptr -> data != k)
+			while(ptr -> data != k && ptr -> rlink != NULL)
 			{
 				ptr = ptr -> rlink;
 			}
-			/*if (ptr == header)
-			{
-				header = header -> rlink;
-				header -> llink = NULL;
-				free(ptr);
-			}*/
-			if(ptr -> data == k && ptr -> rlink == NULL) //deletion at the end element
-			{
-				delEnd();
-			}
-			else if (ptr -> data == k && ptr -> llink == NULL)
-			{
-				delBeg();
-			}
-			else
-			{
-				ptr1 = ptr -> llink;
-				ptr1->rlink = ptr -> rlink;
-				ptr -> rlink = NULL;
-				ptr -> llink = NULL;
-				free(ptr);
-			}
+            if (ptr -> data == k)
+            {
+                if(ptr -> data == k && ptr -> rlink == NULL) //deletion at the end element
+                {
+                    delEnd();
+                }
+                else if (ptr -> data == k && ptr -> llink == NULL)
+                {
+                    delBeg();
+                }
+                else
+                {
+                    ptr1 = ptr -> llink;
+                    ptr1->rlink = ptr -> rlink;
+                    ptr -> rlink = NULL;
+                    ptr -> llink = NULL;
+                    free(ptr);
+                }
+            }
+            else
+            {
+                printf("Element is not present\n");
+            }
 		}
 	}
 }
