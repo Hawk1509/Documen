@@ -219,7 +219,7 @@ void disp()
 	}
 	
 }	
-void nothing()
+void shukriya()
 {
 	printf("Thank you\n");
 }
@@ -310,7 +310,7 @@ void main()
 	while (ch == 'y');
 	if (ch == 'n')
 	{
-		nothing();
+		shukriya();
 	}
 	else
 	{
