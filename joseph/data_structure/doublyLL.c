@@ -203,15 +203,27 @@ void delKey()
 //display
 void disp()
 {
-	ptr = header;
-	while (ptr -> rlink != NULL)
+	if (header == NULL)
 	{
-		printf("%d\t",ptr -> data);
-		ptr = ptr -> rlink;
+		printf("THE LIST IS EMPTY\n");
 	}
-	printf("%d\n",ptr -> data);
+	else
+	{
+		ptr = header;
+		while (ptr -> rlink != NULL)
+		{
+			printf("%d\t",ptr -> data);
+			ptr = ptr -> rlink;
+		}
+		printf("%d\n",ptr -> data);
+	}
+	
 }	
-void main()
+void nothing()
+{
+	printf("Thank you\n");
+}
+/*void main()
 {
 	char ch = 'y';
 	int c;
@@ -241,9 +253,51 @@ void main()
 		scanf(" %c",&ch);
 	}
 	while (ch == 'y');
+}*/	
+void main()
+{
+	char ch = 'y';
+	int c;
+	do
+	{
+		printf("\n1.INSERT AT FRONT\n2.INSERT AT END\n3.INSERT AFTER KEY VALUE\n4.DELETION AT FRONT\n5.DELETION AT END\n6.DELETION OF THE KEY VALUE\n7.DISPLAY\nENTER CHOICE: ");
+		scanf("%d",&c);
+		switch(c)
+		{
+			case 1: inbeg();
+					break;
+			case 2: inEnd();
+					break;
+			case 3: inKey();
+					break;
+			case 4: delBeg();
+					break;
+			case 5: delEnd();
+					break;
+			case 6: delKey();
+					break; 
+			case 7: disp();
+					break;
+			default: printf("\nInvalid choice\n");
+		}
+		printf("do you wish to continue(y/n)? ");
+		scanf(" %c",&ch);
+		switch(ch)
+		{
+			case 'y': main();
+				break;
+			case 'n': nothing();
+				break;
+			default:printf("\nINVALID CHOICE\n\n");
+				main();
+		}
+	}
+	while (ch == 'y');
 }	
 
+
 	
+
 	
 	
 	
