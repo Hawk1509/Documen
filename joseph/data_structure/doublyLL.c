@@ -7,7 +7,7 @@ struct node
 	struct node*rlink;
 	struct node*llink;
 };
-struct node * new,*header = NULL,*rlink = NULL,*llink = NULL,*ptr1,*ptr2,*ptr;
+struct node * new,*header = NULL,*rlink = NULL,*llink = NULL,*ptr1,*ptr2,*ptr,*tailPtr,*tail = NULL;
 int item;
 void inbeg()
 {
@@ -223,6 +223,28 @@ void nothing()
 {
 	printf("Thank you\n");
 }
+void rev()
+{
+	while (ptr -> rlink != NULL)
+	{
+		ptr = ptr -> rlink;
+	}
+	tailPtr = ptr;
+	if (tail == NULL)
+	{
+		printf("The list is empty\n");
+	}
+	else
+	{
+		tailPtr = tail;
+		while (ptr -> llink != NULL)
+		{
+			printf("%d\t",ptr -> data);
+			ptr = ptr -> llink; 
+		}
+		printf("%d\n",ptr -> data);
+	}
+}
 /*void main()
 {
 	char ch = 'y';
@@ -256,11 +278,11 @@ void nothing()
 }*/	
 void main()
 {
-	char ch = 'y';
+	char ch;
 	int c;
 	do
 	{
-		printf("\n1.INSERT AT FRONT\n2.INSERT AT END\n3.INSERT AFTER KEY VALUE\n4.DELETION AT FRONT\n5.DELETION AT END\n6.DELETION OF THE KEY VALUE\n7.DISPLAY\nENTER CHOICE: ");
+		printf("\n1.INSERT AT FRONT\n2.INSERT AT END\n3.INSERT AFTER KEY VALUE\n4.DELETION AT FRONT\n5.DELETION AT END\n6.DELETION OF THE KEY VALUE\n7.DISPLAY THE LIST IN REVERSE ORDER\n8.DISPLAY\nENTER CHOICE: ");
 		scanf("%d",&c);
 		switch(c)
 		{
@@ -276,23 +298,25 @@ void main()
 					break;
 			case 6: delKey();
 					break; 
-			case 7: disp();
+			case 7: rev();
+					break;
+			case 8: disp();
 					break;
 			default: printf("\nInvalid choice\n");
 		}
 		printf("do you wish to continue(y/n)? ");
 		scanf(" %c",&ch);
-		switch(ch)
-		{
-			case 'y': main();
-				break;
-			case 'n': nothing();
-				break;
-			default:printf("\nINVALID CHOICE\n\n");
-				main();
-		}
 	}
 	while (ch == 'y');
+	if (ch == 'n')
+	{
+		nothing();
+	}
+	else
+	{
+		printf("\nInvalid choice\n\n");
+		main();
+	}
 }	
 
 
