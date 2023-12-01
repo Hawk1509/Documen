@@ -1,117 +1,111 @@
 //program to convert infix to postfix
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int top=-1;
+char s[15];
 void push(char);
 char pop();
-int sp(char);
-int cp(char);
-int slen,top=-1,i=0,j=0;
-char infix[100],postfix[100],stack[100],item,x;
+int pr(char);
+
 void main()
 {
-	printf("Enter the infix expression \n");
-	gets(infix);
-	printf("The infix expression is\n");
-	puts(infix);
-	slen=strlen(infix);
-	infix[slen]=')';
-	top=top+1;
-	stack[top]='(';
-	while(infix[i]!='\0')
+	char str[20],res[20],x,y,q;
+	int z,i=0,el=0;
+	printf("Enter the infix expression: ");
+	scanf("%s",str);
+	z=strlen(str);
+	str[z]=')';
+	str[z+1]='\0';
+	push('(');
+	x=str[el];
+	while(x!='\0')
 	{
-		item=infix[i];
-		i=i+1;
-		if(item>='a' && item<='z' || item>='A' && item<='Z')
+		if(x=='(')
 		{
-			postfix[j]=item;
-			j=j+1;
+			push('(');
 		}
-		else if(item==')')
+		else if(isalpha(x)!=0)
 		{
-			x=pop();
-			while(x!='(')
-			{
-				postfix[j]=x;
-				j=j+1;
-				x=pop();
-			}
+			res[i]=x;
+			i++;
 		}
-		else if( item=='+'||item=='-'||item=='*'|| item=='^'||item=='/'||item=='(' )
+		else if(x==')')
 		{
-			x=pop();
-			if(cp(item)>sp(x))
+			while(s[top]!='(')
 			{
-				push(x);
-				push(item);
+				y=pop();
+				res[i]=y;
+				i++;
 			}
-			else if(sp(x)==cp(item))
+			q=pop();
+		}
+		else if(isalpha(x)==0)
+		{
+			if (pr(s[top])>=pr(x))
 			{
-				push(x);
-				push(item);
-			}
-			else if(sp(x)>=cp(item))
-			{
-				while(sp(x)>=cp(item))
+				if(s[top]=='^'&&x=='^')
 				{
-					postfix[j]=x;	
-					j=j+1;
-					x=pop();
+					push(x);
 				}
-				push(x);
-				push(item);
+				else
+				{
+					while(pr(s[top])>=pr(x))
+					{
+						y=pop();
+						res[i]=y;
+						i++;
+					}
+				}
 			}
+			else
+			{
+				push(x);
+			}
+			
 		}
+		el++;
+		x=str[el];
+		
 	}
-	printf("The Postfix expression is");
-	puts(postfix);
+	res[i]='\0';
+	printf("The resultant postfix expression is %s\n",res);
+	
 }
-void push(char item1)
-{ 
-	top=top+1;
-	stack[top]=item1;
-}
-char pop()
+
+void push(char item)
 {
-	x=stack[top];
-	top=top-1;
-	return x;
+	top=top+1;
+	s[top]=item;
 }
-int sp(char z)
-{ 
-	if(z=='^')
+
+char pop()
+{	
+	char item;
+	item=s[top];
+	top=top-1;
+	return item;
+}
+
+
+int pr(char c)
+{
+	if(c=='('||c==')')
+	{
+		return 0;
+	}
+	else if(c=='+'||c=='-')
+	{
+		return 1;
+	}
+	else if(c=='*'||c=='/')
+	{
+		return 2;
+	}
+	else if(c=='^')
 	{
 		return 3;
 	}
-	else if (z=='*'||z=='/')
-	{
-		return 2;
-	}
-	else if(z=='+'||z=='-')
-	{
-		return 1;
-	}
-	else if(z=='(')
-	{
-		return 0;
-	}
-}
-int cp(char y)
-{ 
-	if(y=='^')
-	{
-		return 3;	
-	}
-	else if (y=='*'||y=='/')
-	{
-		return 2;
-	}
-	else if(y=='+'||y=='-')
-	{
-		return 1;
-	}
-	else if(y=='(')
-	{
-		return 0;
-	}
+
 }
 
