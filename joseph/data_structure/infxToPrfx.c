@@ -1,145 +1,135 @@
 //prorgam to display prefix from infix
+Better spam filters … 
+Now Drive automatically moves suspicious files shared with you to spam. You can still report spam on your own.Learn more
+
 #include<stdio.h>
 #include<string.h>
-void push(char);
+#include<ctype.h>
+#define size 10
+int top=-1;
+char s[size];
+int pr(char op);
+void push(char op);
 char pop();
-int sp(char);
-int cp(char);
-int len,top=-1,i=0,j=0;
-char infix[50],infixrev[50],stack[50],item[50],x;
 void main()
 {
-	printf("Enter the infix expression \n");
-	gets(item);
-	printf("The infix expression is\n");
-	puts(item);
-	len=strlen(item);
-	//item[len]=')';
-	top=top+1;
-	//stack[top]='(';
-	i = 0;
-	while(item[i] != '\0')
+	char inf[20],pre[20],infrev[20],prerev[20],item,x;
+	int l,i,j=0,k=0;
+	printf("Enter an infix expression:");
+	gets(inf);
+	l=strlen(inf);
+	for(i=l-1;i>=0;i--,k++)
 	{
-		infix[i] = item[i];
-		i = i + 1;
-	}
-	
-	for (i=len-1;i>=0;i--)
-	{
-		if(infix[i] == '(')
-		{
-			infixrev[j] == ')';
-		} 
-		else if(infix[i] == ')')
-		{
-			infixrev[j] == '(';
+		if(inf[i]=='(')
+		{ 	
+			infrev[k]=')';
 		}
-		else 
+		else if(inf[i]==')')
 		{
-			infixrev[j] = infix[i];
+			infrev[k]='(';
+		}
+		else
+		{
+			infrev[k]=inf[i];
+		}	
+	}	
+	infrev[k]=')';
+	infrev[k+1]='\0';
+	push('(');
+	item=infrev[0];
+	i=0;
+	while(item!='\0')
+	{
+		if(item=='(')
+		{
+			push(item);
+		}
+		else if(isalpha(item))
+		{
+			prerev[j]=item;
 			j++;
 		}
-	}
-	infixrev[j] = '\0';
-	printf("\nReverse\n");
-	puts(infixrev);
-	for (j=0;j>=len-1;j++)
-	{
-		if(infixrev[j] == '(');
+		else if(item==')')
 		{
-			infix[j] = ')';
-		}
-		else if(infixrev[j] >= 'a' && infixrev[j] <= 'z' || infixrev[j] >= 'A' && infixrev[j] <= 'Z')
-		{
-			infix[j] = infixrev[j];
-			j = j + 1;
-		}
-		else if(infixrev[j] == ')')
-		{
-			x = pop();
-			while(x != '(')
+			while(s[top]!='(')
 			{
-				infix[j] = x;
-				j = j + 1;
-				x = pop();
-
+				x=pop();
+				prerev[j]=x;
+				j++;
 			}
+			pop();
 		}
-		else if( infixrev == '+'|| infixrev == '-'|| infixrev == '*'|| infixrev == '^' || infixrev == '/'|| infixrev == '(' )
+		else if(item=='+'||item=='-'||item=='*'||item=='/'||item=='^')
 		{
-			x=pop();
-			if(cp(infixrev)>sp(x))
+			if(pr(s[top])>=pr(item))
 			{
-				push(x);
-				push(infixrev);
-			}
-			else if(sp(x)==cp(infixrev))
-			{
-				push(x);
-				push(infixrev);
-			}
-			else if(sp(x)>=cp(infixrev))
-			{
-				while(sp(x)>=cp(infixrev))	
+				if(s[top]=='^' && item=='^')
 				{
-					infix[j]=x;
-					j=j+1;
-					x=pop();
+					push(item);
 				}
-				push(x);
-				push(infixrev);
+				else
+				{
+					while(pr(s[top])>=pr(item))
+					{
+						x=pop();
+						prerev[j]=x;
+						j++;
+					}
+					push(item);
+				}
+			}
+			else
+			{
+				push(item);
 			}
 		}
+		i++;
+		item=infrev[i];
 	}
-	printf("Prefix expression\n");
-	puts(infix);
-}}
-void push(char item1)
-{ 
-	top=top+1;
-	stack[top]=item1;
+	prerev[j]='\0';
+	for(i=j-1,k=0;i>=0;i--,k++)
+	{
+		pre[k]=prerev[i];	
+	}	
+	pre[k]='\0';
+	printf("Resultant prefix expression:");
+	puts(pre);
+}
+int pr(char op)
+{
+	switch(op)
+	{
+		case '+':
+		case '-':
+			return 1;
+			break;
+		case '*':
+		case '/': 
+			return 2;
+			break;
+		case '^': 
+			return 3;
+			break;
+		default:
+			return -1;		
+			break;
+	}
+}
+void push(char x)
+{
+	top++;
+	s[top]=x;
+	
 }
 char pop()
-{ 
-	x=stack[top];
-	top=top-1;
-	return x;
+{
+	int x;
+	x=s[top];
+	top--;	
+	return x;	
 }
-int sp(char z)
-{ 
-	if(z=='^')
-	{
-		return 3;
-	}
-	else if (z=='*'||z=='/')
-	{
-		return 2;
-	}
-	else if(z=='+'||z=='-')
-	{
-		return 1;
-	}
-	else if(z=='(')
-	{
-		return 0;
-	}
-}
-int cp(char y)
-{ 
-	if(y=='^')
-	{
-		return 3;
-	}
-	else if (y=='*'||y=='/')
-	{
-		return 2;
-	}
-		else if(y=='+'||y=='-')
-	{
-		return 1;
-	}
-	else if(y=='(')
-	{
-		return 0;
-	}
-}
+
+/*Output
+Enter an infix expression:(a+b)*c-d+f
+Resultant prefix expression:-*+abc+df
+*/
