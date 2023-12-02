@@ -97,7 +97,37 @@ void main()
 
 
 }
+/*
+OUTPUT
+Enter number of rows: 3
+Enter number of columns: 4
 
+Elements of the sparse matrix 
+Enter values of A11: 0
+Enter values of A12: 4
+Enter values of A13: 0
+Enter values of A14: 0
+Enter values of A21: 0
+Enter values of A22: 0
+Enter values of A23: 7
+Enter values of A24: 0
+Enter values of A31: 6
+Enter values of A32: 0
+Enter values of A33: 0
+Enter values of A34: 0
+
+The Triplet values are:
+3       4       3
+0       1       4
+1       2       7
+2       0       6
+
+Transpose of the matrix
+4       3       3
+0       2       6
+1       0       4
+2       1       7
+*/
 
 
 
