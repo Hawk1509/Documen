@@ -46,7 +46,7 @@ i = 0;
 }
 while (i<=top)
 {
-printf("%d",a[i]);
+printf("%d\t",a[i]);
 i++;
 }
 }
@@ -80,17 +80,156 @@ do
 	default:
 	printf("\nInvalid\n");
 	break;
-	
-	
-//while (ch == 'y' || ch == "yes")
-//{
-	
 	}
 printf("\nContinue?\n");
 scanf(" %c",&ch);
 }
 while (ch == 'y');
-
-	
-
 }
+/*OUTPUT
+1.push
+2.pop
+3.display
+Enter choice
+1
+
+Enter values:
+10
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+1
+
+Enter values:
+20
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+1
+
+Enter values:
+30
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+3
+10      20      30
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+2
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+3
+10      20
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+2
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+^C
+❯ ./a.out
+1.push
+2.pop
+3.display
+Enter choice
+1 
+
+Enter values:
+10
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+1
+
+Enter values:
+20
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+3
+10      20
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+2
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+3
+10
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+2
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+3
+
+Empty Stack
+
+Continue?
+y
+1.push
+2.pop
+3.display
+Enter choice
+2
+
+Empty Stack
+
+Continue?
+n
+*/
