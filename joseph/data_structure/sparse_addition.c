@@ -16,7 +16,6 @@ void main()
     scanf("%d",&r1);
     printf("Enter number of columns of the 2nd matrix: ");
     scanf("%d", &c1);
-    
     if(r != r1 && c != c1)
     {
     	printf("Addition is not possible\n");
@@ -180,5 +179,48 @@ void main()
 		}
 		 
 		}
+/*
+OUTPUT
 
+Enter values of the Matrix A.
+Enter number of rows of the 1st matrix: 2
+Enter number of columns of the 1st matrix: 2
+
+Enter values of the Matrix B.
+Enter number of rows of the 2nd matrix: 2
+Enter number of columns of the 2nd matrix: 2
+
+Elements of the sparse matrix A 
+Enter values of A11: 1
+Enter values of A12: 2
+Enter values of A21: 1
+Enter values of A22: 2
+
+The Triplet values of matrix A are:
+2       2       4
+0       0       1
+0       1       2
+1       0       1
+1       1       2
+
+Elements of the sparse matrix B 
+Enter values of B11: 1
+Enter values of B12: 2
+Enter values of B21: 1
+Enter values of B22: 2
+
+The Triplet values of matrix B are:
+2       2       4
+0       0       1
+0       1       2
+1       0       1
+1       1       2
+
+Sum of the triplets of matrix A and B are:
+2       2       4
+0       0       2
+0       1       4
+1       0       2
+1       1       4
+*/
 	
