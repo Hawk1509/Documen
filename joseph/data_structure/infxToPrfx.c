@@ -1,7 +1,4 @@
 //prorgam to display prefix from infix
-Better spam filters … 
-Now Drive automatically moves suspicious files shared with you to spam. You can still report spam on your own.Learn more
-
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
