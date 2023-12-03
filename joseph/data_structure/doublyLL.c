@@ -7,7 +7,7 @@ struct node
 	struct node*rlink;
 	struct node*llink;
 };
-struct node * new,*header = NULL,*rlink = NULL,*llink = NULL,*ptr1,*ptr2,*ptr,*tailPtr,*tail = NULL;
+struct node * new,*header = NULL,*rlink = NULL,*llink = NULL,*ptr1,*ptr2,*ptr;
 int item;
 void inbeg()
 {
@@ -223,28 +223,6 @@ void shukriya()
 {
 	printf("Thank you\n");
 }
-void rev()
-{
-	while (ptr -> rlink != NULL)
-	{
-		ptr = ptr -> rlink;
-	}
-	tailPtr = ptr;
-	if (tail == NULL)
-	{
-		printf("The list is empty\n");
-	}
-	else
-	{
-		tailPtr = tail;
-		while (ptr -> llink != NULL)
-		{
-			printf("%d\t",ptr -> data);
-			ptr = ptr -> llink; 
-		}
-		printf("%d\n",ptr -> data);
-	}
-}
 /*void main()
 {
 	char ch = 'y';
@@ -298,8 +276,6 @@ void main()
 					break;
 			case 6: delKey();
 					break; 
-			case 7: rev();
-					break;
 			case 8: disp();
 					break;
 			default: printf("\nInvalid choice\n");
