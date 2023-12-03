@@ -1,6 +1,6 @@
 //Program to display linear queue
 #include <stdio.h>
-#define max 2
+#define max 5
 void Enqueue();
 void Dequeue();
 void display();
@@ -88,10 +88,102 @@ void main()
 						  
 		}
 		
-		printf("Do you wish to continue? (y/n)");
-	//		__fpurge(stdin);
+		printf("\nDo you wish to continue? (y/n)");
 		scanf(" %c", &ch);
 	}while (ch == 'y');
 	 
 	}
+    /*
+    OUTPUT
+    Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+1
 
+Enter element: 10
+
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+1
+
+Enter element: 20
+
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+1
+
+Enter element: 30
+
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+3
+10      20      30
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+2
+
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+3
+20      30
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+2
+
+Do you wish to continue? (y/n)
+y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+2
+
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+3
+
+Queue is Empty.
+
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.Enqueue 
+2.Dequeue 
+3.Display
+Enter choice
+2
+
+Queue is Empty.
+
+Do you wish to continue? (y/n)n
+*/
