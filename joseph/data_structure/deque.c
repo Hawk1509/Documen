@@ -1,4 +1,4 @@
-//Program to display linear queue
+//Program to display double ended queue
 #include <stdio.h>
 #define max 3
 void PUSH();
@@ -107,8 +107,7 @@ void POP()
 	}
 	else
 	{
-		//item = Q[front];
-		if (front = max -1)
+		if (front == max -1)
 		{
 			front = 0;
 			
@@ -176,5 +175,118 @@ void main()
 	}while (ch == 'y');
 	 
 	}
-/* 														OUTPUT
+/* 	
+OUTPUT
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+1
+
+Enter element: 10
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+2
+Enter element to be inserted: 
+20
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+2
+Enter element to be inserted: 
+30
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+5
+10      20      30
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+3
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+5
+20      30
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+4
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+5
+20
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+3
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+5
+
+Queue is Empty.
+Do you wish to continue? (y/n)y
+Menu driven choices 
+1.PUSH 
+2.INJECT 
+3.POP 
+4.EJECT 
+5.DISPLAY 
+Enter choice
+3
+
+Queue is Empty.
+Do you wish to continue? (y/n)n
 */
