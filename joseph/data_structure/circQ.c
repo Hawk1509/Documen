@@ -106,8 +106,7 @@ void main()
 						  
 		}
 		
-		printf("Do you wish to continue? (y/n)");
-	//		__fpurge(stdin);
+		printf("\nDo you wish to continue? (y/n)");
 		scanf(" %c", &ch);
 	}while (ch == 'y');
 	 
@@ -137,7 +136,8 @@ Menu driven choices
 3.Display
 Enter choice
 3
-100	500	Do you wish to continue? (y/n)y
+100	500	
+Do you wish to continue? (y/n)y
 Menu driven choices 
 1.Enqueue 
 2.Dequeue 
@@ -151,7 +151,8 @@ Menu driven choices
 3.Display
 Enter choice
 3
-500	Do you wish to continue? (y/n)y
+500	
+Do you wish to continue? (y/n)y
 Menu driven choices 
 1.Enqueue 
 2.Dequeue 
@@ -167,7 +168,8 @@ Menu driven choices
 3.Display
 Enter choice
 3
-500	300	Do you wish to continue? (y/n)y
+500	300	
+Do you wish to continue? (y/n)y
 Menu driven choices 
 1.Enqueue 
 2.Dequeue 
@@ -181,7 +183,8 @@ Menu driven choices
 3.Display
 Enter choice
 3
-300	Do you wish to continue? (y/n)y
+300	
+Do you wish to continue? (y/n)y
 Menu driven choices 
 1.Enqueue 
 2.Dequeue 
@@ -197,5 +200,6 @@ Menu driven choices
 3.Display
 Enter choice
 3
-300	800	Do you wish to continue? (y/n)n
+300	800	
+Do you wish to continue? (y/n)n
 */
