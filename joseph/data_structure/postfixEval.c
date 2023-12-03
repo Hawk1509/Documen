@@ -162,3 +162,12 @@ int compute(int y,int x,char op)
     } 
     return ans; 
 }
+/*OUTPUT
+Enter the infix expression: (a+b)*(c-d)
+The resultant postfix expression is ab+cd-*
+Enter the value of a : 1
+Enter the value of b : 2
+Enter the value of c : 3
+Enter the value of d : 4
+Postfix Evaluation= -3
+*/
