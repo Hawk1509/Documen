@@ -72,6 +72,7 @@ void linear()
 void main()
 {
 	int ch;
+	char c = 'y';
 	do
 	{
 		printf("\n1.Binary Search\n2.Linear Search\nEnter Choice: ");
@@ -85,7 +86,35 @@ void main()
 			default:printf("Invalid choice\n");
 					break;
 		}
+		printf("\nDo you wish to Continue(y/n)? ");
+		scanf(" %c",&c);
 	}
-	while(ch == 'y');
+	while(c == 'y');
 }
+/*
+OUTPUT
 
+1.Binary Search
+2.Linear Search
+Enter Choice: 1
+Enter limit:4
+Enter values of the array: 1
+3
+5
+6
+Entr elemnt to be searched: 5
+Element at 2
+Do you wish to Continue(y/n)? y
+
+1.Binary Search
+2.Linear Search
+Enter Choice: 2
+Enter limit: 4
+Enter elements of the array: 1
+3
+4
+5
+Enter element to be searched: 4
+Element at 2
+Do you wish to Continue(y/n)? n
+*/
