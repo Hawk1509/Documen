@@ -7,7 +7,7 @@ struct node
 	struct node*rlink;
 	struct node*llink;
 };
-struct node * new,*header = NULL,*rlink = NULL,*llink = NULL,*ptr1,*ptr2,*ptr;
+struct node * new,*header = NULL,*rlink,*llink,*ptr1,*ptr2,*ptr;
 int item;
 void inbeg()
 {
@@ -81,6 +81,7 @@ int k;
 		}
 		else
 		{
+			ptr = header;
 			printf("Enter element after which new element shoudl be inserted: ");
 			scanf("%d",&k);
             
@@ -88,23 +89,24 @@ int k;
                 {
                     ptr = ptr -> rlink;
                 }
+                printf("Test\n");
                 if (ptr -> data == k)
-            {
+            	{
             
-                printf("Enter element: ");
-                scanf("%d",&item);
-                new -> rlink = NULL;
-                new -> llink = NULL;
-                new -> data = item;
-                ptr = header;
-                new -> llink = ptr;
-                new -> rlink = ptr -> rlink;
-                ptr -> rlink = new;				
-            }
-            else
-            {
-                printf("Element is not present\n");
-            }
+                	printf("Enter element: ");
+                	scanf("%d",&item);
+                	new -> rlink = NULL;
+                	new -> llink = NULL;
+                	new -> data = item;
+//                ptr = header;
+                	new -> llink = ptr;
+                	new -> rlink = ptr -> rlink;
+                	ptr -> rlink = new;				
+            	}
+            	else
+            	{
+                	printf("Element is not present\n");
+            	}
             
             
         }
@@ -200,6 +202,20 @@ void delKey()
 		}
 	}
 }
+void rev()
+{
+	ptr = header;
+	while (ptr -> rlink != NULL)
+	{
+		ptr = ptr -> rlink;
+	}
+	while (ptr -> llink != NULL)
+	{
+		printf("%d\t",ptr -> data);
+		ptr = ptr -> llink;
+	}
+	printf("%d\n", ptr -> data);
+}
 //display
 void disp()
 {
@@ -216,20 +232,17 @@ void disp()
 			ptr = ptr -> rlink;
 		}
 		printf("%d\n",ptr -> data);
+		
 	}
 	
 }	
-void shukriya()
-{
-	printf("Thank you\n");
-}
 void main()
 {
 	char ch = 'y';
 	int c;
 	do
 	{
-		printf("1.INSERT AT FRONT\n2.INSERT AT END\n3.INSERT AFTER KEY VALUE\n4.DELETION AT FRONT\n5.DELETION AT END\n6.DELETION OF THE KEY VALUE\n7.DISPLAY\nENTER CHOICE: ");
+		printf("1.INSERT AT FRONT\n2.INSERT AT END\n3.INSERT AFTER KEY VALUE\n4.DELETION AT FRONT\n5.DELETION AT END\n6.DELETION OF THE KEY VALUE\n7.DISPLAY\n8.Display in Reverse\nENTER CHOICE: ");
 		scanf("%d",&c);
 		switch(c)
 		{
