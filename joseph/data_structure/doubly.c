@@ -75,6 +75,11 @@ int k;
 	else
 	{
 		new = (struct node*)malloc(1*sizeof(struct node));
+		printf("Enter element: ");
+                scanf("%d",&item);
+                new -> rlink = NULL;
+                new -> llink = NULL;
+                new -> data = item;
 		if (header == NULL)
 		{
 			header = new;
@@ -84,32 +89,23 @@ int k;
 			ptr = header;
 			printf("Enter element after which new element shoudl be inserted: ");
 			scanf("%d",&k);
-            
-                while (ptr -> data != k && ptr -> rlink != NULL)
-                {
-                    ptr = ptr -> rlink;
-                }
-                printf("Test\n");
-                if (ptr -> data == k)
-            	{
-            
-                	printf("Enter element: ");
-                	scanf("%d",&item);
-                	new -> rlink = NULL;
-                	new -> llink = NULL;
-                	new -> data = item;
-//                ptr = header;
-                	new -> llink = ptr;
-                	new -> rlink = ptr -> rlink;
-                	ptr -> rlink = new;				
-            	}
-            	else
-            	{
-                	printf("Element is not present\n");
-            	}
-            
-            
-        }
+                	while (ptr -> data != k && ptr -> rlink != NULL)
+                	{
+                    		ptr = ptr -> rlink;
+                	}
+                	if (ptr -> data == k)
+			{
+				ptr1 = ptr -> rlink;
+				ptr -> rlink = new;
+	                	new -> llink = ptr;
+	                	new -> rlink = ptr1;
+	                	ptr1 -> llink = new;				
+	            	}
+        	    	else
+            		{
+               		 	printf("Element is not present\n");
+			}
+        	}
 	}
 }
 void delBeg()
