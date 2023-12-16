@@ -1,11 +1,11 @@
 //program to perfrom Quick Sort
 #include <stdio.h>
-void swap(int a,int n)
+void swap(int *a,int *n)
 {
     int temp;
-    temp = a;
-    a = n;
-    n = temp;
+    temp = *a;
+    *a = *n;
+    *n = temp;
 }
 void QS(int a[], int low, int up)
 {
@@ -27,10 +27,10 @@ void QS(int a[], int low, int up)
 			}
 			if (i < j)
 			{
-				swap(a[i],a[j]);
+				swap(&a[i], &a[j]);
 			}
 		}
-		swap(a[low], a[j]);
+		swap(&a[low], &a[j]);
 		QS(a,low,j-1);
 		QS(a,j+1,up);
 	}
@@ -46,19 +46,23 @@ void main()
 		printf("Enter element at position %d: ",i+1);
 		scanf("%d" ,&a[i]);
 	}
-	if(a[i] == 0)
+	lower = 0;	
+	upper = n - 1;
+	QS(a,lower,upper);
+	printf("Sorted data is: ");
+    for(i = 0; i < n;i++)
 	{
-		lower = a[i];	
-	}	
-	else if(a[i] == n-1)
-	{
-		upper = a[i];
-	}
-	QS(a[i],lower,upper);
-	for(i = 0; i < n;i++)
-	{
-		printf("Sorted data is: ");
-		scanf("%d ",a[i]);
+		printf("%d ",a[i]);
 	}
 	printf("\n");
 }
+/*
+OUTPUT
+Enter number of elements:
+4
+Enter element at position 1: 5
+Enter element at position 2: 9
+Enter element at position 3: 1
+Enter element at position 4: 8
+Sorted data is: 1 5 8 9 
+*/
