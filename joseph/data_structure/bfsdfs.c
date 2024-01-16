@@ -146,43 +146,33 @@ void main()
 /*
 OUTPUT
 Enter the number of vertices
-4
-enter 1 if node 1 is adjacent to node 1.Else enter 0:1
+3
+enter 1 if node 1 is adjacent to node 1.Else enter 0:0
 enter 1 if node 1 is adjacent to node 2.Else enter 0:0
 enter 1 if node 1 is adjacent to node 3.Else enter 0:1
-enter 1 if node 1 is adjacent to node 4.Else enter 0:1
 enter 1 if node 2 is adjacent to node 1.Else enter 0:1
 enter 1 if node 2 is adjacent to node 2.Else enter 0:1
 enter 1 if node 2 is adjacent to node 3.Else enter 0:1
-enter 1 if node 2 is adjacent to node 4.Else enter 0:1
 enter 1 if node 3 is adjacent to node 1.Else enter 0:1
 enter 1 if node 3 is adjacent to node 2.Else enter 0:1
-enter 1 if node 3 is adjacent to node 3.Else enter 0:1
-enter 1 if node 3 is adjacent to node 4.Else enter 0:1
-enter 1 if node 4 is adjacent to node 1.Else enter 0:
-1
-enter 1 if node 4 is adjacent to node 2.Else enter 0:1
-enter 1 if node 4 is adjacent to node 3.Else enter 0:1
-enter 1 if node 4 is adjacent to node 4.Else enter 0:0
+enter 1 if node 3 is adjacent to node 3.Else enter 0:0
 Matrix is 
-01011
-01111
-01111
-01110
+0001
+0111
+0110
 enter the starting node:
 1
 enter your choice
 1.BFS
 2.DFS
-1
-1       2       3       4
+2
+1       3       2
 do you want to continue :(y/n)
 y
 enter your choice
 1.BFS
 2.DFS
-2
-1       2       3       4
+1 
+1       2       3
 do you want to continue :(y/n)
-n
-*/
+n*/
